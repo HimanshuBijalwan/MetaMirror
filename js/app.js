@@ -127,6 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Live meta tag code generation
     const metaCodeBlock = document.getElementById('metaCodeBlock');
+    // Update meta tag code generation with comments and extra tags
     function updateMetaCodeBlock() {
         const titleVal = title.value || '';
         const descVal = metaDescription.value || '';
@@ -138,18 +139,31 @@ document.addEventListener('DOMContentLoaded', () => {
         const twitterDescVal = twitterDescription.value || ogDescVal;
         const twitterImageVal = twitterImageInput.value || ogImageVal;
         let metaTags = '';
-        // Compulsory meta tags
-        metaTags += `<meta charset=\"UTF-8\">\n`;
-        metaTags += `<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n`;
-        metaTags += `<meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n`;
-        metaTags += `<meta name=\"robots\" content=\"index, follow\">\n`;
+        // COMMON TAGS
+        metaTags += '<!-- COMMON TAGS -->\n';
+        metaTags += '<meta charset="UTF-8">\n';
+        metaTags += '<meta name="viewport" content="width=device-width, initial-scale=1.0">\n';
+        metaTags += '<meta http-equiv="X-UA-Compatible" content="IE=edge">\n';
+        metaTags += '<meta name="robots" content="index, follow">\n';
+        // Search Engine
+        metaTags += '\n<!-- Search Engine -->\n';
+        if (titleVal) metaTags += `<title>${titleVal}</title>\n`;
+        if (canonicalVal) metaTags += `<link rel="canonical" href="${canonicalVal}">\n`;
+        if (descVal) metaTags += `<meta name="description" content="${descVal}">\n`;
+        // Schema.org for Google
+        metaTags += '\n<!-- Schema.org for Google -->\n';
+        metaTags += `<meta itemprop="name" content="${titleVal}">\n`;
+        metaTags += `<meta itemprop="description" content="${descVal}">\n`;
+        if (ogImageVal) metaTags += `<meta itemprop="image" content="${ogImageVal}">\n`;
         // Open Graph
+        metaTags += '\n<!-- Open Graph general (Facebook, Pinterest & Google+) -->\n';
         if (ogTitleVal) metaTags += `<meta property="og:title" content="${ogTitleVal}">\n`;
         if (ogDescVal) metaTags += `<meta property="og:description" content="${ogDescVal}">\n`;
         if (ogImageVal) metaTags += `<meta property="og:image" content="${ogImageVal}">\n`;
         if (canonicalVal) metaTags += `<meta property="og:url" content="${canonicalVal}">\n`;
         metaTags += `<meta property="og:type" content="website">\n`;
         // Twitter
+        metaTags += '\n<!-- Twitter -->\n';
         metaTags += `<meta name="twitter:card" content="summary_large_image">\n`;
         if (twitterTitleVal) metaTags += `<meta name="twitter:title" content="${twitterTitleVal}">\n`;
         if (twitterDescVal) metaTags += `<meta name="twitter:description" content="${twitterDescVal}">\n`;
@@ -235,6 +249,20 @@ document.addEventListener('DOMContentLoaded', () => {
         // Update meta code block
         updateMetaCodeBlock();
         updateOGTwitterPixelInfo();
+    });
+
+    // Clear Data button functionality
+    const clearFormBtn = document.getElementById('clearFormBtn');
+    clearFormBtn.addEventListener('click', () => {
+        form.reset();
+        updateCharCount(titleCharCount, 0, MAX_TITLE_LENGTH);
+        updateCharCount(descCharCount, 0, MAX_DESC_LENGTH);
+        updatePixelInfo();
+        updateOGTwitterPixelInfo();
+        updateSerpPreview();
+        updateFacebookPreview();
+        updateTwitterPreview();
+        updateMetaCodeBlock();
     });
 
     // Initialize previews and meta code block

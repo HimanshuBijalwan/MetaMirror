@@ -16,7 +16,10 @@
 - ⚡ **Live Input** for Title, Description, Canonical URL, OG & Twitter tags
 - 📏 **Pixel & Character Warnings** for all major fields (SERP, OG, Twitter)
 - 📋 **Copy Meta Tags**: One-click copy of all generated meta tags
+- 🧹 **Clear Data**: Instantly reset all fields and previews
 - 💎 **Modern UI**: Responsive, beautiful, and easy to use
+- 📝 **Instructional Section**: Clear usage notes and guidance
+- 🏷️ **Meta Tag Code Generation**: Now includes `<title>` and `<link rel="canonical">` under the Search Engine section.
 
 ---
 
@@ -26,6 +29,10 @@
 2. See live previews for Google, Facebook, and Twitter.
 3. Watch for pixel/character warnings to optimize your tags.
 4. Click the **Copy** button to copy all meta tags for your site.
+5. Paste the copied code at the top of your page's `<head>` section.
+6. Use the **Clear Data** button to reset all fields and start over.
+
+> **Note:** The form is pre-filled with dummy data to demonstrate usage.
 
 ---
 
