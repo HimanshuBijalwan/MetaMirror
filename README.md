@@ -20,6 +20,7 @@
 - 💎 **Modern UI**: Responsive, beautiful, and easy to use
 - 📝 **Instructional Section**: Clear usage notes and guidance
 - 🏷️ **Meta Tag Code Generation**: Now includes `<title>` and `<link rel="canonical">` under the Search Engine section.
+- 📄 **MIT License**: Open source and free to use for any purpose.
 
 ---
 
@@ -58,6 +59,12 @@
 2. Find the **Pages** section.
 3. Set the source branch to `main` and the folder to `/root` (or `/docs` if you move your files).
 4. Save and visit the provided URL.
+
+---
+
+## 📜 License
+
+This project is licensed under the [MIT License](LICENSE).
 
 ---
 
